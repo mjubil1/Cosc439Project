@@ -6,13 +6,13 @@ package edu.towson.cosc431.valis.networkingdemo.models;
 
 public class Message {
     private String img;
+    private String id;
     private String message;
     private String name;
 
     public Message() {}
 
-    public Message(String img, String message, String name) {
-        this.img = img;
+    public Message( String message, String name) {
         this.message = message;
         this.name = name;
     }
@@ -40,5 +40,7 @@ public class Message {
     public String getName() {
         return name;
     }
+
+    public String getId() { return id; }
 }
 

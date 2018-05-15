@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,6 +16,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import edu.towson.cosc431.valis.networkingdemo.database.AvatarDatastore;
+import edu.towson.cosc431.valis.networkingdemo.models.Message;
+
 public class AddInfoActivity extends AppCompatActivity {
 
     private static final String TAG = AddInfoActivity.class.getName();
@@ -22,6 +26,7 @@ public class AddInfoActivity extends AppCompatActivity {
     public static final String NAME_KEY = "ADD_NAME";
     public static final String AVATAR_KEY = "AVATAR_KEY";
 
+    AvatarDatastore dataStore;
     EditText nameEt, avatarEt;
     Button save;
 
@@ -46,11 +51,22 @@ public class AddInfoActivity extends AppCompatActivity {
     private void navigateBack() {
         Toast.makeText(this,"Saving to the database",Toast.LENGTH_SHORT).show();
 
+        // Add messaging info to database
+        dataStore = new AvatarDatastore(this);
+
         String nameTxt = nameEt.getText().toString();
         String avatarTxt = avatarEt.getText().toString();
+
+        Message message = new Message(nameTxt,avatarTxt);
+
         Intent resultIntent = new Intent(getApplicationContext(), ImageListActivity.class);
+
+        // This stores the message that was created to the database
+        dataStore.addMessage(message);
+
         resultIntent.putExtra(NAME_KEY, nameTxt);
         resultIntent.putExtra(AVATAR_KEY, avatarTxt);
+
         setResult(RESULT_OK, resultIntent);
         finish();
     }

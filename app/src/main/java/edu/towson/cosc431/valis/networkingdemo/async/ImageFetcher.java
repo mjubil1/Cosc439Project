@@ -61,7 +61,7 @@ public class ImageFetcher {
 //            ConnectivityManager cm = (ConnectivityManager)ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
 //            NetworkInfo network = cm.getActiveNetworkInfo();
 //            Log.i("TAG", network.toString());
-//            if(network.isAvailable() && network.isConnected()) {
+//            if(network.isAvailable() && netwBork.isConnected()) {
 //                // will not work on emulator!!!!
 //                if(network.getType() == ConnectivityManager.TYPE_WIFI) {
 //                    executor.execute(runnable);
