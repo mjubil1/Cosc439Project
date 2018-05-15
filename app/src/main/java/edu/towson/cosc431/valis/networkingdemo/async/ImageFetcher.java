@@ -48,6 +48,8 @@ public class ImageFetcher {
             @Override
             public void run() {
                 try {
+
+                    // Code here runs on a background thread that displays the image
                     Bitmap b = ImageService.getInstance().getImage(null, avatar.id);
                     //CacheService.getInstance().cacheImage(ctx, avatar.id, b);
                     cb.onSuccess(b, avatar);

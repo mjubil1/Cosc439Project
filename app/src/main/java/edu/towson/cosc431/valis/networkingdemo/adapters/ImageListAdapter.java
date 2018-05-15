@@ -66,7 +66,7 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.Imag
             super(itemView);
             imageView = (ImageView)itemView.findViewById(R.id.imageView);
             imageView.setVisibility(View.INVISIBLE);
-            textView = (TextView)itemView.findViewById(R.id.textView);
+            textView = (TextView)itemView.findViewById(R.id.avatarTv);
             progressBar = (ProgressBar)itemView.findViewById(R.id.progressBar);
         }
 

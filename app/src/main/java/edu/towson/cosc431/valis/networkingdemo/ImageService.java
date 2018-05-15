@@ -26,7 +26,7 @@ public class ImageService {
     List<Avatar> data;
     private ImageService() {
         data = new ArrayList<>(100);
-        for (int i = 0; i < 30; i+=3) {
+        for (int i = 0; i < 1; i++) {
             Avatar avatar = new Avatar();
             avatar.id = i;
             avatar.img = "abott1";
@@ -41,6 +41,16 @@ public class ImageService {
             avatar.id = i + 2;
             avatar.img = "abott3";
             avatar.name = "Avatar 3";
+            data.add(avatar);
+            avatar = new Avatar();
+            avatar.id = i + 3;
+            avatar.img = "abott4";
+            avatar.name = "Avatar 4";
+            data.add(avatar);
+            avatar = new Avatar();
+            avatar.id = i + 4;
+            avatar.img = "abott5";
+            avatar.name = "Avatar 5";
             data.add(avatar);
         }
     }
