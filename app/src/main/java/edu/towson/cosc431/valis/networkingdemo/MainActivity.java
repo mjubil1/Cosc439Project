@@ -33,6 +33,29 @@ public class MainActivity extends AppCompatActivity  {
         goHomeBtn = findViewById(R.id.homeBtn);
         Log.d(TAG,"onCreate");
 
+        final NetManager manager = NetManager.getInstance();
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Pojo res = manager.getJson();
+                Log.i("TAG", res.title);
+            }
+        });
+
+        thread.start();
+
+        Thread thread2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                List<Pojo> res = manager.getJsonArray();
+                for (Pojo pojo : res) {
+                    Log.i("TAG", pojo.userId + ": " + pojo.title);
+                }
+            }
+        });
+        thread2.start();
+
         nameTv.setText("Avatar 1");
         messageTv.setText("Hello World");
 
